@@ -1,19 +1,20 @@
-import express, { Router } from 'express'
-
+import express from 'express'
+import { Router } from 'express'
+import { personasRouter } from './personas.js'
+import { ventasRouter } from './ventas.js'
 export const apiRouter = Router()
+//Con los siguientes mealware podemos leer la información de los post
+apiRouter.use(express.json())
+apiRouter.use(express.urlencoded({extended: true}))
 
-apiRouter.get('/products', async(req, res)=>{})
-apiRouter.post('/products', async (req, res)=>{})
-apiRouter.put('/products/:id', async (req, res)=>{})
-apiRouter.delete('/products/:id', async (req, res)=>{})
+apiRouter.use('/personas',personasRouter)
+apiRouter.use('/ventas',ventasRouter)
 
-apiRouter.get('/products', async(req, res)=>{})
-apiRouter.post('/products', async (req, res)=>{})
-apiRouter.put('/products/:id', async (req, res)=>{})
-apiRouter.delete('/products/:id', async (req, res)=>{})
 
-apiRouter.get('/products', async(req, res)=>{})
-apiRouter.post('/products', async (req, res)=>{})
-apiRouter.put('/products/:id', async (req, res)=>{})
-apiRouter.delete('/products/:id', async (req, res)=>{})
+
+
+
+
+
+
 
